@@ -76,19 +76,19 @@ errDupFun :: (Located (Bind a)) => Decl a -> UserError
 errDupFun d = mkError (printf "duplicate function '%s'" (pprint f))    (sourceSpan f) where f = fName d
 
 errDupParam :: (Located (Bind a)) => Bind a -> UserError
-errDupParam x = mkError (printf "Duplicate parameter '%s'" (bindId x)) (sourceSpan x)
+errDupParam x = mkError (printf "duplicate parameter '%s'" (bindId x)) (sourceSpan x)
 
 errDupBind :: (Located (Bind a)) => Bind a -> UserError
-errDupBind x = mkError (printf "Shadow binding '%s'" (bindId x))      (sourceSpan x)
+errDupBind x = mkError (printf "shadow binding '%s'" (bindId x))      (sourceSpan x)
 
 errLargeNum :: SourceSpan -> Integer -> UserError
-errLargeNum   l n = mkError (printf "Number '%d' is too large" n) l
+errLargeNum   l n = mkError (printf "number '%d' is too large" n) l
 
 errUnboundVar :: SourceSpan -> Id -> UserError
-errUnboundVar l x = mkError (printf "Unbound variable '%s'" x) l
+errUnboundVar l x = mkError (printf "unbound variable '%s'" x) l
 
 errUnboundFun :: SourceSpan -> Id -> UserError
-errUnboundFun l f = mkError (printf "Function '%s' is not defined" f) l
+errUnboundFun l f = mkError (printf "function '%s' is not defined" f) l
 
 errCallArity :: SourceSpan -> Id -> UserError
-errCallArity  l f = mkError (printf "Wrong arity of arguments at call of %s" f) l
+errCallArity  l f = mkError (printf "wrong arity of arguments at call of %s" f) l
